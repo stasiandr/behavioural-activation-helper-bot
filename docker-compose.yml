@@ -18,6 +18,13 @@ services:
       - "8000:8000"
     depends_on:
       - db
+  telegram_bot:
+    build: ./telegram_bot
+    command: python main.py
+    volumes:
+      - ./telegram_bot:/code
+    depends_on:
+      - backend
 
 volumes:
   postgres-vol:
